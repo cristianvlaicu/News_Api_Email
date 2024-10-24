@@ -9,9 +9,9 @@ def send_email(message):     # creamos función/módulo para poder llamarla desd
 
     username = "lordbeilish13@gmail.com"   # el que manda el email, va a iniciar sesión en nuestra cuenta...
     password = os.getenv("password")
-    receiver = "dkelnumero1@gmail.com"   #... para (auto)mandar el email del usuario (es como si nos mandamos un autoemail con el mensaje y los datos del usuario que nos contacta en la página).
-    context = ssl.create_default_context() # este es un contexto seguro que viene incorporado para mandar los emails de forma segura.
+    receiver = "dkelnumero1@gmail.com"      #... para (auto)mandar el email del usuario (es como si nos mandamos un autoemail con el mensaje y los datos del usuario que nos contacta en la página).
+    context = ssl.create_default_context()  # este es un contexto seguro que viene incorporado para mandar los emails de forma segura.
 
-    with smtplib.SMTP_SSL(host, port, context=context) as server:  # este es el "programa-servidor" que manda el email de forma automáatica.
+    with smtplib.SMTP_SSL(host, port, context=context) as server:  # este es el "programa-servidor" que manda el email de forma automática.
         server.login(username, password)
         server.sendmail(username, receiver, message)
